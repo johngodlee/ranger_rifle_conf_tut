@@ -20,8 +20,6 @@ The pre-amble comments give examples of how to set up the file, but this took me
 
 `rifle.conf` is structured so each line provides a set of conditions separated by commas (`,`) e.g. `ext mp3`, followed by an equals `=`, then a terminal command, e.g. vlc `$@`. When Ranger is asked to open a file, it cycles through every line from top to bottom until it finds a line where all the conditions are met, then it runs the terminal command. This means that the top-most line where all the conditions are met will be run. Using this logic you can construct a `rifle.conf` that works on different systems, if you order potential applications from most to least preferred.
 
-<hl>
-
 ## Using `open`
 
 Most Linux applications can simply be opened by typing their name into the terminal, optionally followed by a file to open and various rules, e.g. `zathura example.pdf`. In macOS however, typing the equivalent `preview example.pdf` just returns an error that `preview` has not been found. The same goes for `Preview`, `preview.app` and `Preview.app`.
@@ -53,8 +51,6 @@ ext pdf = open -a preview "$@"
 
 Where `"$@"` is the file path of the file highlighted in Ranger The above there says, if the file extension is `.pdf`, open the file with Preview.app.
 
-<hl>
-
 ## Regex
 
 Regular expressions can be used to make more complex conditions, e.g. using `|` to include multiple file extensions in one line, or `[]` and `?` to list similar extensions without repetition. Try to work out what the conditions below mean. If you need a refresher on Regex, I often refer to [this website](LINK TO REGEX):
@@ -63,8 +59,6 @@ Regular expressions can be used to make more complex conditions, e.g. using `|` 
 ext jpe?g|png|gif = open -a preview "$@"
 ext od[dfgpst] = open -a libreoffice "$@"
 ```
-
-<hl>
 
 ## MIME types
 
@@ -76,13 +70,9 @@ ext tex = open -a texworks "$@"
 mime ^text = nano "$@"
 ```
 
-<hl> 
-
 ## The `has` condition
 
 For the majority of GUI applications on a Mac, the `has` condition does not work, for the same reason that calling applications directly from the terminal by typing their name doesn't work, because Ranger can't find them. As far as I know, there isn't any way to get around this. Maybe if you could check for the presence of the named directory in `~/Applications`, but I haven't worked that out yet.
-
-<hl>
 
 ## Taking advantage of LaunchServices defaults
 
@@ -93,8 +83,6 @@ flag f = open "$@"
 ```
 
 This takes advantage of `open` using macOS `LaunchServices` to decide the default application when the user doesn't specify one using `-a`. This should catch everything that you haven't listed specifically. I suppose you could just have a `rifle.conf` with only this line and everything would still work as if you were using a GUI, files would be opened with the default Mac GUI application as if you had double clicked on it in `Finder`.
-
-<hl> 
 
 ## Formatting
 
@@ -118,10 +106,6 @@ mime ^text = vim "$@"
 #-------------------------------------------
 ext mp3 = /Applications/VLC.app/Contents/MacOS/VLC --intf ncurses  "$@"
 ```
-
-Now build your own `rifle.conf` using the tips above!
-
-<hl>
 
 # A final tip
 
