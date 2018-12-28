@@ -112,7 +112,7 @@ ext mp3 = /Applications/VLC.app/Contents/MacOS/VLC --intf ncurses  "$@"
 If you find yourself switching between Finder and Ranger a lot, especially as you transition to the terminal, adding this keybinding to `~/.config/ranger/rc.conf` will allow you to open Finder on the highlighted file with `%`:
 
 ```shell-script
-map % shell open -R %s
+map % shell open -R %f
 ```
 
 It opens the shell prompt and uses `open` to call Finder (`-R`) on the highlighted file (`%s`). You could do similar if you wanted to quickly specify a non-default editor for a file:
