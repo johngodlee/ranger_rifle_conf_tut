@@ -1,5 +1,16 @@
 # Intro to the Ranger File Manager and `rifle.conf` for macOS
 
+# Table of Contents
+- [Using `open`](#using-open)
+- [Regex](#regex)
+- [MIME types](#mime-types)
+- [The `has` condition](#the-has-condition)
+- [Taking advantage of LaunchServices defaults](#taking-advantage-of-launchservices-defaults)
+- [Formatting](#formatting)
+- [A final tip](#a-final-tip)
+
+# Introduction
+
 Ranger is a file manager for the terminal and my default file manager since I moved away from `Midnight Commander` (`mc`). Most of my work I do on a MacBook Pro and I found that opening files that weren't text editor compatible was difficult, pressing <Enter> on the highlighted files merely returned an `open with:` prompt, and nothing I typed seemed to work.
 
 ![](img/ranger_scrot.png)
